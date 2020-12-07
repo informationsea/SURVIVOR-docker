@@ -8,7 +8,7 @@ WORKDIR /build/SURVIVOR-1.0.6
 RUN make -C Debug
 
 FROM alpine:3.10
-RUN apk add bash bzip2 zlib
+RUN apk add bash bzip2 zlib libstdc++
 COPY --from=build /build/SURVIVOR-1.0.6/Debug/SURVIVOR /usr/local/bin
 COPY --from=build /build/SURVIVOR-1.0.6/INSTALL /
 COPY --from=build /build/SURVIVOR-1.0.6/README.md /
